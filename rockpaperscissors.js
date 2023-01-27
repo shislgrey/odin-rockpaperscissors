@@ -7,7 +7,7 @@ let score = 0;
 
 function getComputerChoice() {
     computerSelection = choices[Math.floor(Math.random() * choices.length)]
-    console.log(computerSelection)
+    // console.log(computerSelection)
 }
 function getPlayerChoice() {
     playerSelection = prompt("Rock, paper, or scissors?").toLowerCase()
@@ -16,7 +16,7 @@ function getPlayerChoice() {
         console.log("Sorry, that's not a valid choice! Try again! Rock, paper, or scissors?")
         getPlayerChoice()
     } else {
-        console.log(playerSelection)
+        // console.log(playerSelection)
     }
 }
 function determineWinner() {
@@ -43,7 +43,7 @@ function determineWinner() {
             }
         }
     }
-    console.log(winner)
+    //     console.log(winner)
 }
 
 function playGame() {
@@ -58,6 +58,13 @@ function playGame() {
         } else if (winner == "tie") {
             score = score
         }
-        console.log(score)
+        // console.log(score)
+    }
+    if (score < 0) {
+        console.log(`Computer wins! Score is ${score}.`)
+    } else if (score > 0) {
+        console.log(`Player wins! Score is ${score}.`)
+    } else {
+        console.log("It's a tie!")
     }
 }
