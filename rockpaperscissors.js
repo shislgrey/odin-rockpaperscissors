@@ -1,25 +1,25 @@
 let choices = ['rock', 'paper', 'scissors']
-// let choices = ['tits', 'ass']
 let computerSelection;
 let playerSelection;
 let winner;
 let score = 0;
 
 function getComputerChoice() {
-    computerSelection = choices[Math.floor(Math.random() * choices.length)]
-    // console.log(computerSelection)
+    return choices[Math.floor(Math.random() * choices.length)]
 }
 function getPlayerChoice() {
     playerSelection = prompt("Rock, paper, or scissors?").toLowerCase()
-    // playerSelection = prompt("Tits or ass?").toLowerCase()
     if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
         console.log("Sorry, that's not a valid choice! Try again! Rock, paper, or scissors?")
         getPlayerChoice()
     } else {
-        // console.log(playerSelection)
+        console.log(playerSelection)
     }
 }
+
 function determineWinner() {
+    computerSelection = getComputerChoice()
+    console.log(computerSelection)
     if (computerSelection == playerSelection) {
         winner = "tie"
     } else if (computerSelection != playerSelection) {
@@ -43,11 +43,11 @@ function determineWinner() {
             }
         }
     }
-    //     console.log(winner)
+    console.log(winner)
 }
 
 function playGame() {
-    for (let counter = 0; counter < 5; counter++) {
+    for (let counter = 0; counter < 1; counter++) {
         getComputerChoice()
         getPlayerChoice()
         determineWinner()
@@ -58,7 +58,7 @@ function playGame() {
         } else if (winner == "tie") {
             score = score
         }
-        // console.log(score)
+        console.log(score)
     }
     if (score < 0) {
         console.log(`Computer wins! Score is ${score}.`)
