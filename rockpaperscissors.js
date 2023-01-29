@@ -7,10 +7,10 @@ function getPlayerChoice() {
     let playerSelection = prompt("Rock, paper, or scissors?").toLowerCase()
     if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
         console.log("Sorry, that's not a valid choice! Try again! Rock, paper, or scissors?")
-        getPlayerChoice()
-    } else {
-        return playerSelection
+        playerSelection = prompt("Rock, paper, or scissors?").toLowerCase()
     }
+    return playerSelection
+
 }
 
 function determineWinner(computerSelection, playerSelection) {
