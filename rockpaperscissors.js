@@ -1,25 +1,20 @@
-let choices = ['rock', 'paper', 'scissors']
-let computerSelection;
-let playerSelection;
-let winner;
-let score = 0;
 
 function getComputerChoice() {
+    let choices = ['rock', 'paper', 'scissors']
     return choices[Math.floor(Math.random() * choices.length)]
 }
 function getPlayerChoice() {
-    playerSelection = prompt("Rock, paper, or scissors?").toLowerCase()
+    let playerSelection = prompt("Rock, paper, or scissors?").toLowerCase()
     if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
         console.log("Sorry, that's not a valid choice! Try again! Rock, paper, or scissors?")
         getPlayerChoice()
     } else {
-        console.log(playerSelection)
+        return playerSelection
     }
 }
 
-function determineWinner() {
-    computerSelection = getComputerChoice()
-    console.log(computerSelection)
+function determineWinner(computerSelection, playerSelection) {
+    let winner
     if (computerSelection == playerSelection) {
         winner = "tie"
     } else if (computerSelection != playerSelection) {
@@ -44,13 +39,15 @@ function determineWinner() {
         }
     }
     console.log(winner)
+    return winner
 }
 
 function playGame() {
-    for (let counter = 0; counter < 1; counter++) {
-        getComputerChoice()
-        getPlayerChoice()
-        determineWinner()
+    let score = 0
+    for (let counter = 0; counter < 5; counter++) {
+        computerSelection = getComputerChoice()
+        playerSelection = getPlayerChoice()
+        winner = determineWinner(computerSelection, playerSelection)
         if (winner == "computer") {
             score -= 1;
         } else if (winner == "player") {
@@ -61,10 +58,10 @@ function playGame() {
         console.log(score)
     }
     if (score < 0) {
-        console.log(`Computer wins! Score is ${score}.`)
+        alert(`Computer wins! Score is ${score}.`)
     } else if (score > 0) {
-        console.log(`Player wins! Score is ${score}.`)
+        alert(`Player wins! Score is ${score}.`)
     } else {
-        console.log("It's a tie!")
+        alert("It's a tie!")
     }
 }
