@@ -1,9 +1,25 @@
+//TODO: Make this program flexible enough to play both the normal game as well as "Rock, Paper, Scissors, Lizard, Spock":
+//      Scissors cuts Paper
+//      Paper covers Rock
+//      Rock crushes Lizard
+//      Lizard poisons Spock
+//      Spock smashes Scissors
+//      Scissors decapitates Lizard
+//      Lizard eats Paper
+//      Paper disproves Spock
+//      Spock vaporizes Rock
+//      Rock crushes Scissors
+//
+//      ...or any other "X beats Y" game
 
 function getComputerChoice() {
+    //TODO: same as in determineWinner: store the possible choices in a data structure
     let choices = ['rock', 'paper', 'scissors']
     return choices[Math.floor(Math.random() * choices.length)]
 }
+
 function getPlayerChoice() {
+    //TODO: turn this into a loop
     let playerSelection = prompt("Rock, paper, or scissors?").toLowerCase()
     if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
         console.log("Sorry, that's not a valid choice! Try again! Rock, paper, or scissors?")
@@ -13,7 +29,10 @@ function getPlayerChoice() {
 
 }
 
+
 function determineWinner(computerSelection, playerSelection) {
+    //TODO: implement this in a more compact way, storing the possible choices in a data structure
+    //(hint: use map or indexOf)
     let winner
     if (computerSelection == playerSelection) {
         winner = "tie"
@@ -43,6 +62,7 @@ function determineWinner(computerSelection, playerSelection) {
 }
 
 function playGame() {
+    //TODO: optimize the if/else logic
     let score = 0
     for (let counter = 0; counter < 5; counter++) {
         computerSelection = getComputerChoice()
