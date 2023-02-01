@@ -71,7 +71,7 @@ function playGame() {
         }
         console.log(score)
     }
-    // TODO: break this out into a sepatate function
+    // TODO: break this out into a separate function
     if (score < 0) {
         console.log(`Computer wins! Score is ${score}.`)
     } else if (score > 0) {
