@@ -1,4 +1,4 @@
-//TODO: Make this program flexible enough to play both the normal game as well as "Rock, Paper, Scissors, Lizard, Spock":
+// TODO: Make this program flexible enough to play both the normal game as well as "Rock, Paper, Scissors, Lizard, Spock":
 //      Scissors cuts Paper
 //      Paper covers Rock
 //      Rock crushes Lizard
@@ -15,7 +15,7 @@
 var choices = ['rock', 'paper', 'scissors']
 
 function getComputerChoice() {
-    //TODO: same as in determineWinner: store the possible choices in a data structure
+    // TODO: same as in determineWinner: store the possible choices in a data structure
     return choices[Math.floor(Math.random() * choices.length)]
 }
 
@@ -27,8 +27,8 @@ function getPlayerChoice() {
 }
 
 function determineWinner(computerSelection, playerSelection) {
-    //TODO: implement this in a more compact way, storing the possible choices in a data structure
-    //(hint: use map or indexOf)
+    // TODO: implement this in a more compact way, storing the possible choices in a data structure
+    // (hint: use map or indexOf)
     let winner
     if (computerSelection == playerSelection) {
         winner = "tie"
@@ -58,7 +58,7 @@ function determineWinner(computerSelection, playerSelection) {
 }
 
 function playGame() {
-    //TODO: optimize the if/else logic
+    // TODO: optimize the if/else logic
     let score = 0
     for (let counter = 0; counter < 5; counter++) {
         computerSelection = getComputerChoice()
@@ -71,6 +71,7 @@ function playGame() {
         }
         console.log(score)
     }
+    // TODO: break this out into a sepatate function
     if (score < 0) {
         console.log(`Computer wins! Score is ${score}.`)
     } else if (score > 0) {
