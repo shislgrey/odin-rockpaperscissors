@@ -1,16 +1,36 @@
 const RockPaperScissors = require('./rockpaperscissors');
 
 
-test('Check the computer choice is valid', () => {
-  expect(RockPaperScissors.choices).toContain(RockPaperScissors.getComputerChoice());
-});
+describe("getComputerChoice", () => {
+  test('it should return a valid choice', () => {
+    expect(RockPaperScissors.choices).toContain(RockPaperScissors.getComputerChoice());
+  });
+  test('it should return one choice', () => {
+    throw Error('TODO: write test code');
+  });
+  test('returned choice should be lowercase', () => {
+    throw Error('TODO: write test code');
+  });
+})
 
-test('Verify player choice is normalized', () => {
-  // getPlayerChoice() processes the user's input. How do we test it?
-  fail('TODO: write test code')
-});
 
-test('Verify winner selection', () => {
-  // Test the different branches of determineWinner
-  fail('TODO: write test code')
-});
+describe("getPlayerChoice", () => {
+  test("it should reject invalid choices", () => {
+    throw Error('TODO: write test code');
+  });
+  test("it should re-prompt on invalid choice", () => {
+    throw Error('TODO: write test code');
+  });
+})
+
+describe("determineWinner", () => {
+  test('it should determine if you lost', () => {
+    throw Error('TODO: write test code');
+  });
+  test('it should determine if you won', () => {
+    throw Error('TODO: write test code');
+  });
+  test('it should determine if the round is a tie', () => {
+    throw Error('TODO: write test code');
+  });
+})
