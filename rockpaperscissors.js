@@ -12,13 +12,6 @@
 //
 //      ...or any other "X beats Y" game
 
-// module.exports = { playGame }
-// function alert(x) {
-//     x === 'undefined' ? console.log('undefined') : console.log(x); return;
-// };
-
-
-
 var choices = ['rock', 'paper', 'scissors']
 
 function getComputerChoice() {
@@ -31,9 +24,7 @@ function getPlayerChoice() {
     while (!choices.includes(playerSelection))
         playerSelection = prompt("Rock, paper, or scissors? ").toLowerCase()
     return playerSelection
-
 }
-
 
 function determineWinner(computerSelection, playerSelection) {
     //TODO: implement this in a more compact way, storing the possible choices in a data structure
