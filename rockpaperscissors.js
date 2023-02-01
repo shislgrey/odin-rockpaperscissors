@@ -15,10 +15,12 @@
 var choices = ['rock', 'paper', 'scissors']
 
 function getComputerChoice() {
-    // TODO: same as in determineWinner: store the possible choices in a data structure
+    // TODO: same goal as in determineWinner: store the possible choices in a data structure
     return choices[Math.floor(Math.random() * choices.length)]
 }
 
+// TODO: Move the looping part into the main game loop, or into a different function
+// TODO: maybe rename this function and focus on validating input 
 function getPlayerChoice() {
     let playerSelection = ''
     while (!choices.includes(playerSelection))
