@@ -83,5 +83,6 @@ function playGame() {
 module.exports = {
     getComputerChoice,
     getPlayerChoice,
-    determineWinner
+    determineWinner,
+    choices
 };
