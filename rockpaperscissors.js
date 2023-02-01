@@ -88,3 +88,9 @@ function playGame() {
         console.log("It's a tie!")
     }
 }
+
+module.exports = {
+    getComputerChoice,
+    getPlayerChoice,
+    determineWinner
+};
