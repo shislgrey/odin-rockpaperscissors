@@ -1,3 +1,5 @@
+// Handy template: https://gist.github.com/ShurakaiSoft/9402599
+
 const RockPaperScissors = require('./rockpaperscissors');
 
 
@@ -11,11 +13,20 @@ describe("getComputerChoice", () => {
   it('should return choice in lowercase', () => {
     throw Error('TODO: write test code');
   });
+  it('should be fairly random', () => {
+    // This will take some extra work.
+    // Hint: collect a bunch of computer choices, then process them
+    throw Error('TODO: write test code');
+  });
 })
 
 
 describe("getPlayerChoice", () => {
-  it("should reject invalid choice", () => {
+// TODO: Rewrite getPlayerChoice and decouple it from the prompting
+  it("should accept valid choices", () => {
+    throw Error('TODO: write test code');
+  });
+  it("should reject invalid choices", () => {
     throw Error('TODO: write test code');
   });
   it("should re-prompt on invalid choice", () => {
