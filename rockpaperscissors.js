@@ -12,19 +12,18 @@
 //
 //      ...or any other "X beats Y" game
 
+let choices = ['rock', 'paper', 'scissors']
+
 function getComputerChoice() {
     //TODO: same as in determineWinner: store the possible choices in a data structure
-    let choices = ['rock', 'paper', 'scissors']
     return choices[Math.floor(Math.random() * choices.length)]
 }
 
 function getPlayerChoice() {
     //TODO: turn this into a loop
-    let playerSelection = prompt("Rock, paper, or scissors?").toLowerCase()
-    if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
-        console.log("Sorry, that's not a valid choice! Try again! Rock, paper, or scissors?")
+    let playerSelection = ''
+    while (!choices.includes(playerSelection))
         playerSelection = prompt("Rock, paper, or scissors?").toLowerCase()
-    }
     return playerSelection
 
 }
@@ -72,8 +71,6 @@ function playGame() {
             score -= 1;
         } else if (winner == "player") {
             score += 1;
-        } else if (winner == "tie") {
-            score = score
         }
         console.log(score)
     }
