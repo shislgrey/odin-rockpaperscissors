@@ -12,7 +12,14 @@
 //
 //      ...or any other "X beats Y" game
 
-let choices = ['rock', 'paper', 'scissors']
+// module.exports = { playGame }
+// function alert(x) {
+//     x === 'undefined' ? console.log('undefined') : console.log(x); return;
+// };
+
+
+
+var choices = ['rock', 'paper', 'scissors']
 
 function getComputerChoice() {
     //TODO: same as in determineWinner: store the possible choices in a data structure
@@ -20,10 +27,9 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    //TODO: turn this into a loop
     let playerSelection = ''
     while (!choices.includes(playerSelection))
-        playerSelection = prompt("Rock, paper, or scissors?").toLowerCase()
+        playerSelection = prompt("Rock, paper, or scissors? ").toLowerCase()
     return playerSelection
 
 }
@@ -75,10 +81,10 @@ function playGame() {
         console.log(score)
     }
     if (score < 0) {
-        alert(`Computer wins! Score is ${score}.`)
+        console.log(`Computer wins! Score is ${score}.`)
     } else if (score > 0) {
-        alert(`Player wins! Score is ${score}.`)
+        console.log(`Player wins! Score is ${score}.`)
     } else {
-        alert("It's a tie!")
+        console.log("It's a tie!")
     }
 }
