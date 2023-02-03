@@ -8,10 +8,11 @@ describe("getComputerChoice", () => {
     expect(RockPaperScissors.choices).toContain(RockPaperScissors.getComputerChoice());
   });
   it('should return one choice', () => {
-    throw Error('TODO: write test code');
+    expect(typeof RockPaperScissors.getComputerChoice()).toBe('string');
   });
   it('should return choice in lowercase', () => {
-    throw Error('TODO: write test code');
+    var computerChoice = RockPaperScissors.getComputerChoice();
+    expect(computerChoice).toEqual(computerChoice.toLowerCase());
   });
   it('should be fairly random', () => {
     // This will take some extra work.
@@ -22,7 +23,7 @@ describe("getComputerChoice", () => {
 
 
 describe("getPlayerChoice", () => {
-// TODO: Rewrite getPlayerChoice and decouple it from the prompting
+  // TODO: Rewrite getPlayerChoice and decouple it from the prompting
   it("should accept valid choices", () => {
     throw Error('TODO: write test code');
   });
