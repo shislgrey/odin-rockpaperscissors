@@ -59,6 +59,16 @@ function determineWinner(computerSelection, playerSelection) {
     return winner
 }
 
+function scoreGame(score) {
+    if (score < 0) {
+        console.log(`Computer wins! Score is ${score}.`)
+    } else if (score > 0) {
+        console.log(`Player wins! Score is ${score}.`)
+    } else {
+        console.log("It's a tie!")
+    }
+}
+
 function playGame() {
     // TODO: optimize the if/else logic
     let score = 0
@@ -71,16 +81,9 @@ function playGame() {
         } else if (winner == "player") {
             score += 1;
         }
-        console.log(score)
     }
     // TODO: break this out into a separate function
-    if (score < 0) {
-        console.log(`Computer wins! Score is ${score}.`)
-    } else if (score > 0) {
-        console.log(`Player wins! Score is ${score}.`)
-    } else {
-        console.log("It's a tie!")
-    }
+    scoreGame(score)
 }
 
 module.exports = {
