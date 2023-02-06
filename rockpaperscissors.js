@@ -19,9 +19,9 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)]
 }
 
-// TODO: Move the looping part into the main game loop, or into a different function
-// TODO: maybe rename this function and focus on validating input 
 function getPlayerChoice() {
+    // TODO: Move the looping part into the main game loop, or into a different function
+    // TODO: maybe rename this function and focus on validating input 
     let playerSelection = ''
     while (!choices.includes(playerSelection))
         playerSelection = prompt("Rock, paper, or scissors? ").toLowerCase()
@@ -63,11 +63,12 @@ function determineWinner(computerSelection, playerSelection) {
             }
         }
     }
-    console.log(winner)
+    console.log(winner) //FIXME: remove if no longer used for debugging 
     return winner
 }
 
 function scoreGame(score) {
+    // TODO: make this function return something
     if (score < 0) {
         console.log(`Computer wins! Score is ${score}.`)
     } else if (score > 0) {
@@ -84,7 +85,6 @@ function playGame() {
         computerSelection = getComputerChoice()
         // playerSelection = getPlayerChoice()
         try {
-            // something
             // TODO: fill prompt with string interpolation so choices can get filled in
             // TODO: '.toLowerCase()' seems like it belongs in validation
             playerSelection = prompt(choices).toLowerCase()
@@ -99,7 +99,8 @@ function playGame() {
             score += 1;
         }
     }
-    // TODO: break this out into a separate function
+    // TODO: the output of this function should be captured
+    // what's a short way to console.log this function's output?
     scoreGame(score)
 }
 
