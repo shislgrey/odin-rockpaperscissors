@@ -1,4 +1,4 @@
-// TODO: Make this program flexible enough to play both the normal game as well as "Rock, Paper, Scissors, Lizard, Spock":
+// TODO (big): Make this program flexible enough to play both the normal game as well as "Rock, Paper, Scissors, Lizard, Spock":
 //      Scissors cuts Paper
 //      Paper covers Rock
 //      Rock crushes Lizard
@@ -83,10 +83,11 @@ function playGame() {
     let score = 0
     for (let counter = 0; counter < 5; counter++) {
         computerSelection = getComputerChoice()
-        // playerSelection = getPlayerChoice()
+        
+        // FIXME: this only asks once and exits on failure. can we wrap it in a loop?
         try {
             // TODO: fill prompt with string interpolation so choices can get filled in
-            // TODO: '.toLowerCase()' seems like it belongs in validation
+            // FIXME: '.toLowerCase()' seems like it belongs in validation
             playerSelection = prompt(choices).toLowerCase()
             validatePlayerChoice(choices, playerSelection)
         } catch (error) {
