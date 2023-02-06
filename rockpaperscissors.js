@@ -85,7 +85,8 @@ function playGame() {
         // playerSelection = getPlayerChoice()
         try {
             // something
-            //TODO: fill prompt with string interpolation so choices can get filled in
+            // TODO: fill prompt with string interpolation so choices can get filled in
+            // TODO: '.toLowerCase()' seems like it belongs in validation
             playerSelection = prompt(choices).toLowerCase()
             validatePlayerChoice(choices, playerSelection)
         } catch (error) {
