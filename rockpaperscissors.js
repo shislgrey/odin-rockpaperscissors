@@ -28,6 +28,14 @@ function getPlayerChoice() {
     return playerSelection
 }
 
+function validatePlayerChoice(choices, playerSelection) {
+    if (choices.includes(playerSelection)) {
+        return playerSelection
+    } else {
+        throw new Error("You chose wrong! Try again!")
+    }
+}
+
 function determineWinner(computerSelection, playerSelection) {
     // TODO: implement this in a more compact way, storing the possible choices in a data structure
     // (hint: use map or indexOf)
@@ -74,7 +82,15 @@ function playGame() {
     let score = 0
     for (let counter = 0; counter < 5; counter++) {
         computerSelection = getComputerChoice()
-        playerSelection = getPlayerChoice()
+        // playerSelection = getPlayerChoice()
+        try {
+            // something
+            //TODO: fill prompt with string interpolation so choices can get filled in
+            playerSelection = prompt(choices).toLowerCase()
+            validatePlayerChoice(choices, playerSelection)
+        } catch (error) {
+            throw new Error(error);
+        }
         winner = determineWinner(computerSelection, playerSelection)
         if (winner == "computer") {
             score -= 1;
