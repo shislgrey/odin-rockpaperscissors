@@ -32,7 +32,7 @@ function validatePlayerChoice(choices, playerSelection) {
     if (choices.includes(playerSelection)) {
         return playerSelection
     } else {
-        throw new Error("You chose wrong! Try again!")
+        throw new RangeError("Invalid choice")
     }
 }
 
@@ -83,15 +83,24 @@ function playGame() {
     let score = 0
     for (let counter = 0; counter < 5; counter++) {
         computerSelection = getComputerChoice()
-        
-        // FIXME: this only asks once and exits on failure. can we wrap it in a loop?
-        try {
-            // TODO: fill prompt with string interpolation so choices can get filled in
-            // FIXME: '.toLowerCase()' seems like it belongs in validation
-            playerSelection = prompt(choices).toLowerCase()
-            validatePlayerChoice(choices, playerSelection)
-        } catch (error) {
-            throw new Error(error);
+        while (true) {
+            try {
+                // TODO: fill prompt with string interpolation so choices can get filled in
+                // TODO: '.toLowerCase()' seems like it belongs in validation
+                playerSelection = prompt(choices)
+                if (playerSelection == null) { throw new Error("User canceled") }
+                validatePlayerChoice(choices, playerSelection.toLowerCase());
+                break;
+            } 
+            catch (error) {
+                switch (error.message) {
+                    case "User canceled":
+                        throw new Error("Game ended early.");
+                        break;
+                    case "Invalid choice":
+                        continue;
+                }
+            }
         }
         winner = determineWinner(computerSelection, playerSelection)
         if (winner == "computer") {
