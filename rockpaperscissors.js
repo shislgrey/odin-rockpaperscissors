@@ -29,10 +29,11 @@ function getPlayerChoice() {
 }
 
 function validatePlayerChoice(choices, playerSelection) {
-    if (choices.includes(playerSelection)) {
-        return playerSelection
+    playerSelectionNormalized = playerSelection.toLowerCase
+    if (choices.includes(playerSelectionNormalized)) {
+        return playerSelectionNormalized
     } else {
-        throw new Error("You chose wrong! Try again!")
+        throw new Error("Invalid Choice")
     }
 }
 
@@ -70,11 +71,11 @@ function determineWinner(computerSelection, playerSelection) {
 function scoreGame(score) {
     // TODO: make this function return something
     if (score < 0) {
-        console.log(`Computer wins! Score is ${score}.`)
+        return (`Computer wins! Score is ${score}.`)
     } else if (score > 0) {
-        console.log(`Player wins! Score is ${score}.`)
+        return (`Player wins! Score is ${score}.`)
     } else {
-        console.log("It's a tie!")
+        return ("It's a tie!")
     }
 }
 
