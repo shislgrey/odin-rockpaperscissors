@@ -101,9 +101,7 @@ function playGame() {
             score += 1;
         }
     }
-    // TODO: the output of this function should be captured
-    // what's a short way to console.log this function's output?
-    scoreGame(score)
+    console.log(scoreGame(score))
 }
 
 module.exports = {
