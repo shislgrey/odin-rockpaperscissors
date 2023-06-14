@@ -22,9 +22,7 @@ function getComputerChoice() {
 function getPlayerChoice() {
     // TODO: Move the looping part into the main game loop, or into a different function
     // TODO: maybe rename this function and focus on validating input 
-    let playerSelection = ''
-    while (!choices.includes(playerSelection))
-        playerSelection = prompt("Rock, paper, or scissors? ").toLowerCase()
+    let playerSelection = prompt("Rock, paper, or scissors? ")
     return playerSelection
 }
 
@@ -64,12 +62,10 @@ function determineWinner(computerSelection, playerSelection) {
             }
         }
     }
-    console.log(winner) //FIXME: remove if no longer used for debugging 
     return winner
 }
 
 function scoreGame(score) {
-    // TODO: make this function return something
     if (score < 0) {
         return (`Computer wins! Score is ${score}.`)
     } else if (score > 0) {
@@ -84,7 +80,7 @@ function playGame() {
     let score = 0
     for (let counter = 0; counter < 5; counter++) {
         computerSelection = getComputerChoice()
-        
+
         // FIXME: this only asks once and exits on failure. can we wrap it in a loop?
         try {
             // TODO: fill prompt with string interpolation so choices can get filled in
