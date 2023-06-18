@@ -104,5 +104,6 @@ module.exports = {
     getComputerChoice,
     getPlayerChoice,
     determineWinner,
-    choices
+    choices,
+    scoreGame
 };
