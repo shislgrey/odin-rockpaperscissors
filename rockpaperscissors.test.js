@@ -51,15 +51,15 @@ describe("determineWinner", () => {
 // Move the scoring part of playGame() into its own function
 describe("scoreGame", () => {
   it('should determine if you won', () => {
-    throw new Error('TODO: write test code');
+    expect(RockPaperScissors.scoreGame(5)).toEqual("Player wins! Score is 5.");
   });
   it('should determine if computer won', () => {
-    throw new Error('TODO: write test code');
+    expect(RockPaperScissors.scoreGame(-5)).toEqual("Computer wins! Score is -5.");
   });
   it('should determine if the game is a tie', () => {
-    throw new Error('TODO: write test code');
+    expect(RockPaperScissors.scoreGame(0)).toEqual("It's a tie!");
   });
   it('should output the final score', () => {
-    throw new Error('TODO: write test code');
+    expect([-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]).toContain(RockPaperScissors.score);
   });
 })
