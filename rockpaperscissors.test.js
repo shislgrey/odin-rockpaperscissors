@@ -22,8 +22,8 @@ describe("getComputerChoice", () => {
 })
 
 
-describe("getPlayerChoice", () => {
-  // TODO: Rewrite getPlayerChoice and decouple it from the prompting
+describe("validatePlayerChoice", () => {
+  // TODO: Rewrite validatePlayerChoice and decouple it from the prompting
   it("should accept valid choices", () => {
     //TODO: WORK ON REWRITING THIS TOMORROW
     expect(RockPaperScissors.choices).toContain(RockPaperScissors.getPlayerChoice());

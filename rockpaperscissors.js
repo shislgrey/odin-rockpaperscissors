@@ -19,13 +19,6 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)]
 }
 
-function getPlayerChoice() {
-    // TODO: Move the looping part into the main game loop, or into a different function
-    // TODO: maybe rename this function and focus on validating input 
-    let playerSelection = prompt("Rock, paper, or scissors? ")
-    return playerSelection
-}
-
 function validatePlayerChoice(choices, playerSelection) {
     playerSelectionNormalized = playerSelection.toLowerCase
     if (choices.includes(playerSelectionNormalized)) {
@@ -102,7 +95,7 @@ function playGame() {
 
 module.exports = {
     getComputerChoice,
-    getPlayerChoice,
+    validatePlayerChoice,
     determineWinner,
     choices,
     scoreGame
