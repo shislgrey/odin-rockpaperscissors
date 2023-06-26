@@ -38,13 +38,13 @@ describe("validatePlayerChoice", () => {
 
 describe("determineWinner", () => {
   it('should determine if you lost', () => {
-    throw new Error('TODO: write test code');
+    expect(RockPaperScissors.determineWinner("rock", "scissors")).toEqual("computer");
   });
   it('should determine if you won', () => {
-    throw new Error('TODO: write test code');
+    expect(RockPaperScissors.determineWinner("rock", "paper")).toEqual("player");
   });
   it('should determine if the round is a tie', () => {
-    throw new Error('TODO: write test code');
+    expect(RockPaperScissors.determineWinner("rock", "rock")).toEqual("tie");
   });
 })
 
