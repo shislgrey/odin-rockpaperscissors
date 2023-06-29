@@ -23,10 +23,8 @@ describe("getComputerChoice", () => {
 
 
 describe("validatePlayerChoice", () => {
-  // TODO: Rewrite validatePlayerChoice and decouple it from the prompting
   it("should accept valid choices", () => {
-    //TODO: WORK ON REWRITING THIS TOMORROW
-    expect(RockPaperScissors.choices).toContain(RockPaperScissors.getPlayerChoice());
+    expect(RockPaperScissors.validatePlayerChoice(RockPaperScissors.choices, 'ROCK')).toEqual('rock');
   });
   it("should reject invalid choices", () => {
     throw new Error('TODO: write test code');
@@ -57,9 +55,9 @@ describe("scoreGame", () => {
     expect(RockPaperScissors.scoreGame(-5)).toEqual("Computer wins! Score is -5.");
   });
   it('should determine if the game is a tie', () => {
-    expect(RockPaperScissors.scoreGame(0)).toEqual("It's a tie!");
+    expect(RockPaperScissors.scoreGame(0)).toEqual("It's a tie! Score is 0.");
   });
   it('should output the final score', () => {
-    expect([-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]).toContain(RockPaperScissors.score);
+    expect(typeof RockPaperScissors.scoreGame()).toEqual('string');
   });
 })

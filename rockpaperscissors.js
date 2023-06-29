@@ -64,7 +64,7 @@ function scoreGame(score) {
     } else if (score > 0) {
         return (`Player wins! Score is ${score}.`)
     } else {
-        return ("It's a tie!")
+        return (`It's a tie! Score is ${score}.`)
     }
 }
 
@@ -77,8 +77,7 @@ function playGame() {
         // FIXME: this only asks once and exits on failure. can we wrap it in a loop?
         try {
             // TODO: fill prompt with string interpolation so choices can get filled in
-            // FIXME: '.toLowerCase()' seems like it belongs in validation
-            playerSelection = prompt(choices).toLowerCase()
+            playerSelection = prompt(choices)
             validatePlayerChoice(choices, playerSelection)
         } catch (error) {
             throw new Error(error);
