@@ -20,7 +20,7 @@ function getComputerChoice() {
 }
 
 function validatePlayerChoice(choices, playerSelection) {
-    playerSelectionNormalized = playerSelection.toLowerCase
+    playerSelectionNormalized = playerSelection.toLowerCase()
     if (choices.includes(playerSelectionNormalized)) {
         return playerSelectionNormalized
     } else {
