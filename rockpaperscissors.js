@@ -24,7 +24,7 @@ function validatePlayerChoice(choices, playerSelection) {
     if (choices.includes(playerSelectionNormalized)) {
         return playerSelectionNormalized
     } else {
-        throw new Error("Invalid Choice")
+        return 'Error: Invalid Choice'
     }
 }
 

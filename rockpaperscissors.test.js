@@ -27,7 +27,7 @@ describe("validatePlayerChoice", () => {
     expect(RockPaperScissors.validatePlayerChoice(RockPaperScissors.choices, 'ROCK')).toEqual('rock');
   });
   it("should reject invalid choices", () => {
-    throw new Error('TODO: write test code');
+    expect(RockPaperScissors.validatePlayerChoice(RockPaperScissors.choices, 'asjf')).toEqual('Error: Invalid Choice');
   });
   it("should re-prompt on invalid choice", () => {
     throw new Error('TODO: write test code');
