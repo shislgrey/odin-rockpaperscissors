@@ -13,6 +13,7 @@
 //      ...or any other "X beats Y" game
 
 var choices = ['rock', 'paper', 'scissors']
+var counter
 
 function getComputerChoice() {
     // TODO: same goal as in determineWinner: store the possible choices in a data structure
@@ -22,6 +23,7 @@ function getComputerChoice() {
 function validatePlayerChoice(choices, playerSelection) {
     playerSelectionNormalized = playerSelection.toLowerCase()
     if (choices.includes(playerSelectionNormalized)) {
+        counter++
         return playerSelectionNormalized
     } else {
         return 'Error: Invalid Choice'
@@ -71,13 +73,13 @@ function scoreGame(score) {
 function playGame() {
     // TODO: optimize the if/else logic
     let score = 0
-    for (let counter = 0; counter < 5; counter++) {
+    for (counter = 0; counter < 5;) {
         computerSelection = getComputerChoice()
 
         // FIXME: this only asks once and exits on failure. can we wrap it in a loop?
         try {
             // TODO: fill prompt with string interpolation so choices can get filled in
-            playerSelection = prompt(choices)
+            playerSelection = prompt('Rock, paper, or scissors?')
             validatePlayerChoice(choices, playerSelection)
         } catch (error) {
             throw new Error(error);
