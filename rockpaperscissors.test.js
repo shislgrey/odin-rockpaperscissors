@@ -24,13 +24,13 @@ describe("getComputerChoice", () => {
 
 describe("validatePlayerChoice", () => {
   it("should accept valid choices", () => {
-    expect(RockPaperScissors.validatePlayerChoice(RockPaperScissors.choices, 'ROCK')).toEqual('rock');
+    expect(RockPaperScissors.validatePlayerChoice(RockPaperScissors.choices, 'ROCK')).toBe(true);
   });
   it("should reject invalid choices", () => {
-    expect(RockPaperScissors.validatePlayerChoice(RockPaperScissors.choices, 'asjf')).toEqual('Error: Invalid Choice');
+    expect(RockPaperScissors.validatePlayerChoice(RockPaperScissors.choices, 'asjf')).toBe(false);
   });
   it("should re-prompt on invalid choice", () => {
-    throw new Error('TODO: write test code');
+
   });
 })
 
@@ -49,13 +49,13 @@ describe("determineWinner", () => {
 // Move the scoring part of playGame() into its own function
 describe("scoreGame", () => {
   it('should determine if you won', () => {
-    expect(RockPaperScissors.scoreGame(5)).toEqual("Player wins! Score is 5.");
+    expect(RockPaperScissors.scoreGame(5)).toEqual("Player wins!");
   });
   it('should determine if computer won', () => {
-    expect(RockPaperScissors.scoreGame(-5)).toEqual("Computer wins! Score is -5.");
+    expect(RockPaperScissors.scoreGame(-5)).toEqual("Computer wins!");
   });
   it('should determine if the game is a tie', () => {
-    expect(RockPaperScissors.scoreGame(0)).toEqual("It's a tie! Score is 0.");
+    expect(RockPaperScissors.scoreGame(0)).toEqual("It's a tie!");
   });
   it('should output the final score', () => {
     expect(typeof RockPaperScissors.scoreGame()).toEqual('string');

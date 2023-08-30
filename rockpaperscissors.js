@@ -13,7 +13,6 @@
 //      ...or any other "X beats Y" game
 
 var choices = ['rock', 'paper', 'scissors']
-var counter
 
 function getComputerChoice() {
     // TODO: same goal as in determineWinner: store the possible choices in a data structure
@@ -21,12 +20,10 @@ function getComputerChoice() {
 }
 
 function validatePlayerChoice(choices, playerSelection) {
-    playerSelectionNormalized = playerSelection.toLowerCase()
-    if (choices.includes(playerSelectionNormalized)) {
-        counter++
-        return playerSelectionNormalized
+    if (choices.includes(playerSelection.toLowerCase())) {
+        return true
     } else {
-        return 'Error: Invalid Choice'
+        return false
     }
 }
 
@@ -62,36 +59,41 @@ function determineWinner(computerSelection, playerSelection) {
 
 function scoreGame(score) {
     if (score < 0) {
-        return (`Computer wins! Score is ${score}.`)
+        return ('Computer wins!')
     } else if (score > 0) {
-        return (`Player wins! Score is ${score}.`)
+        return ('Player wins!')
     } else {
-        return (`It's a tie! Score is ${score}.`)
+        return ("It's a tie!")
     }
 }
 
 function playGame() {
     // TODO: optimize the if/else logic
     let score = 0
+    let cscore = 0
+    let pscore = 0
     for (counter = 0; counter < 5;) {
         computerSelection = getComputerChoice()
 
         // FIXME: this only asks once and exits on failure. can we wrap it in a loop?
-        try {
-            // TODO: fill prompt with string interpolation so choices can get filled in
-            playerSelection = prompt('Rock, paper, or scissors?')
-            validatePlayerChoice(choices, playerSelection)
-        } catch (error) {
-            throw new Error(error);
+        playerSelection = prompt(`Computer score is ${cscore} and player score is ${pscore}. \nRock, paper, or scissors?`).toLowerCase()
+        if (validatePlayerChoice(choices, playerSelection)) {
+            counter++
+        } else {
+            playerSelection = prompt('Please enter a valid selection: rock, paper, or scissors?').toLowerCase()
         }
+
+
         winner = determineWinner(computerSelection, playerSelection)
         if (winner == "computer") {
             score -= 1;
+            cscore += 1;
         } else if (winner == "player") {
             score += 1;
+            pscore += 1;
         }
     }
-    console.log(scoreGame(score))
+    alert(`${scoreGame(score)} The final score is: Computer, ${cscore}; Player, ${pscore}.`)
 }
 
 module.exports = {
