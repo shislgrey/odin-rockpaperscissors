@@ -72,6 +72,7 @@ function playGame() {
     let score = 0
     let cscore = 0
     let pscore = 0
+    let strike = 0
     for (counter = 0; counter < 5;) {
         computerSelection = getComputerChoice()
 
@@ -79,8 +80,11 @@ function playGame() {
         playerSelection = prompt(`Computer score is ${cscore} and player score is ${pscore}. \nRock, paper, or scissors?`).toLowerCase()
         if (validatePlayerChoice(choices, playerSelection)) {
             counter++
-        } else {
+        } else if (strike < 3) {
             playerSelection = prompt('Please enter a valid selection: rock, paper, or scissors?').toLowerCase()
+            strike++
+        } else if (strike = 3) {
+            return alert(`That\'s enough playing around, the game is over.`)
         }
 
 
