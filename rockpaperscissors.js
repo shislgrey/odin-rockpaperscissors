@@ -73,13 +73,22 @@ function playGame() {
     let cscore = 0
     let pscore = 0
     let strike = 0
-    for (counter = 0; counter < 5;) {
+    //for (counter = 0; counter < 5;) 
+    while (true) {
         computerSelection = getComputerChoice()
 
         // FIXME: this only asks once and exits on failure. can we wrap it in a loop?
         playerSelection = prompt(`Computer score is ${cscore} and player score is ${pscore}. \nRock, paper, or scissors?`).toLowerCase()
         if (validatePlayerChoice(choices, playerSelection)) {
-            counter++
+            winner = determineWinner(computerSelection, playerSelection)
+            if (winner == "computer") {
+                score -= 1;
+                cscore += 1;
+            } else if (winner == "player") {
+                score += 1;
+                pscore += 1;
+            }
+            //counter++
         } else if (strike < 3) {
             playerSelection = prompt('Please enter a valid selection: rock, paper, or scissors?').toLowerCase()
             strike++
@@ -88,16 +97,9 @@ function playGame() {
         }
 
 
-        winner = determineWinner(computerSelection, playerSelection)
-        if (winner == "computer") {
-            score -= 1;
-            cscore += 1;
-        } else if (winner == "player") {
-            score += 1;
-            pscore += 1;
-        }
+
     }
-    alert(`${scoreGame(score)} The final score is: Computer, ${cscore}; Player, ${pscore}.`)
+    alert(`The final score is: Computer, ${cscore}; Player, ${pscore}. ${scoreGame(score)}`)
 }
 
 module.exports = {
