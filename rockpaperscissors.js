@@ -93,7 +93,7 @@ function playGame() {
             playerSelection = prompt('Please enter a valid selection: rock, paper, or scissors?').toLowerCase()
             strike++
         } else if (strike = 3) {
-            return alert(`That\'s enough playing around, the game is over.`)
+            return alert("That's enough playing around, the game is over.")
         }
 
 
@@ -109,3 +109,17 @@ module.exports = {
     choices,
     scoreGame
 };
+
+
+const rock = document.querySelector('#rock')
+rock.addEventListener('click', () => {
+    playerSelection = "rock"
+})
+const paper = document.querySelector('#paper')
+paper.addEventListener('click', () => {
+    playerSelection = "paper"
+})
+const scissors = document.querySelector('#scissors')
+scissors.addEventListener('click', () => {
+    playerSelection = "scissors"
+})
