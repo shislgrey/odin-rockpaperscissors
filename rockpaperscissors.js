@@ -72,34 +72,34 @@ function playGame() {
     let score = 0
     let cscore = 0
     let pscore = 0
-    let strike = 0
+    //let strike = 0
     //for (counter = 0; counter < 5;) 
-    while (true) {
-        computerSelection = getComputerChoice()
+    //while (true) {
+    computerSelection = getComputerChoice()
 
-        // FIXME: this only asks once and exits on failure. can we wrap it in a loop?
-        playerSelection = prompt(`Computer score is ${cscore} and player score is ${pscore}. \nRock, paper, or scissors?`).toLowerCase()
-        if (validatePlayerChoice(choices, playerSelection)) {
-            winner = determineWinner(computerSelection, playerSelection)
-            if (winner == "computer") {
-                score -= 1;
-                cscore += 1;
-            } else if (winner == "player") {
-                score += 1;
-                pscore += 1;
-            }
-            //counter++
-        } else if (strike < 3) {
-            playerSelection = prompt('Please enter a valid selection: rock, paper, or scissors?').toLowerCase()
-            strike++
-        } else if (strike = 3) {
-            return alert("That's enough playing around, the game is over.")
-        }
-
-
-
+    // FIXME: this only asks once and exits on failure. can we wrap it in a loop?
+    //playerSelection = prompt(`Computer score is ${cscore} and player score is ${pscore}. \nRock, paper, or scissors?`).toLowerCase()
+    //if (validatePlayerChoice(choices, playerSelection)) {
+    winner = determineWinner(computerSelection, playerSelection)
+    if (winner == "computer") {
+        score -= 1;
+        cscore += 1;
+    } else if (winner == "player") {
+        score += 1;
+        pscore += 1;
     }
-    alert(`The final score is: Computer, ${cscore}; Player, ${pscore}. ${scoreGame(score)}`)
+    //counter++
+    // } else if (strike < 3) {
+    //    playerSelection = prompt('Please enter a valid selection: rock, paper, or scissors?').toLowerCase()
+    //    strike++
+    //} else if (strike = 3) {
+    //    return alert("That's enough playing around, the game is over.")
+    //}
+
+
+
+    //}
+    //alert(`The final score is: Computer, ${cscore}; Player, ${pscore}. ${scoreGame(score)}`)
 }
 
 module.exports = {
@@ -113,13 +113,16 @@ module.exports = {
 
 const rock = document.querySelector('#rock')
 rock.addEventListener('click', () => {
-    playerSelection = "rock"
+    playGame(getComputerChoice(), playerSelection = "rock")
 })
 const paper = document.querySelector('#paper')
 paper.addEventListener('click', () => {
-    playerSelection = "paper"
+    playGame(getComputerChoice(), playerSelection = "paper")
 })
 const scissors = document.querySelector('#scissors')
 scissors.addEventListener('click', () => {
-    playerSelection = "scissors"
+    playGame(getComputerChoice(), playerSelection = "scissors")
 })
+
+let outcome = document.querySelector('#outcome')
+outcome.textContent = `${scoreGame(score)} Computer score is ${cscore} and player score is ${pscore}.`
