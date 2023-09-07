@@ -111,18 +111,28 @@ module.exports = {
 };
 
 
+const outcome = document.querySelector('#outcome')
+const results = document.createElement('div')
+results.classList.add('results')
+
 const rock = document.querySelector('#rock')
 rock.addEventListener('click', () => {
-    playGame(getComputerChoice(), playerSelection = "rock")
+    playGame(getComputerChoice(), playerSelection = "rock");
+    results.textContent = `${scoreGame(score)} Computer score is ${cscore} and player score is ${pscore}.`;
+    outcome.appendChild(results);
 })
 const paper = document.querySelector('#paper')
 paper.addEventListener('click', () => {
-    playGame(getComputerChoice(), playerSelection = "paper")
+    playGame(getComputerChoice(), playerSelection = "paper");
+    results.textContent = `${scoreGame(score)} Computer score is ${cscore} and player score is ${pscore}.`;
+    outcome.appendChild(results);
 })
 const scissors = document.querySelector('#scissors')
 scissors.addEventListener('click', () => {
-    playGame(getComputerChoice(), playerSelection = "scissors")
+    playGame(getComputerChoice(), playerSelection = "scissors");
+    results.textContent = `${scoreGame(score)} Computer score is ${cscore} and player score is ${pscore}.`;
+    outcome.appendChild(results);
 })
 
-let outcome = document.querySelector('#outcome')
-outcome.textContent = `${scoreGame(score)} Computer score is ${cscore} and player score is ${pscore}.`
+
+// results.textContent = `${scoreGame(score)} Computer score is ${cscore} and player score is ${pscore}.`
