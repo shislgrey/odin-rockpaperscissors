@@ -13,6 +13,8 @@
 //      ...or any other "X beats Y" game
 
 var choices = ['rock', 'paper', 'scissors']
+let selection
+
 
 function getComputerChoice() {
     // TODO: same goal as in determineWinner: store the possible choices in a data structure
@@ -67,7 +69,7 @@ function scoreGame(score) {
     }
 }
 
-function playGame() {
+function playGame(playerSelection) {
     // TODO: optimize the if/else logic
     let score = 0
     let cscore = 0
@@ -111,28 +113,22 @@ module.exports = {
 };
 
 
-const outcome = document.querySelector('#outcome')
-const results = document.createElement('div')
-results.classList.add('results')
+//const outcome = document.querySelector('#outcome')
+//const results = document.createElement('div')
+//results.classList.add('results')
+
+function clickyButton(playerSelection) {
+    playGame(playerSelection)
+    alert(`${scoreGame(score)} Computer score is ${cscore} and player score is ${pscore}.`)
+    //outcome.appendChild(results);
+}
 
 const rock = document.querySelector('#rock')
-rock.addEventListener('click', () => {
-    playGame(getComputerChoice(), playerSelection = "rock");
-    results.textContent = `${scoreGame(score)} Computer score is ${cscore} and player score is ${pscore}.`;
-    outcome.appendChild(results);
-})
+rock.addEventListener('click', clickyButton('rock'))
 const paper = document.querySelector('#paper')
-paper.addEventListener('click', () => {
-    playGame(getComputerChoice(), playerSelection = "paper");
-    results.textContent = `${scoreGame(score)} Computer score is ${cscore} and player score is ${pscore}.`;
-    outcome.appendChild(results);
-})
+paper.addEventListener('click', clickyButton('paper'))
 const scissors = document.querySelector('#scissors')
-scissors.addEventListener('click', () => {
-    playGame(getComputerChoice(), playerSelection = "scissors");
-    results.textContent = `${scoreGame(score)} Computer score is ${cscore} and player score is ${pscore}.`;
-    outcome.appendChild(results);
-})
+scissors.addEventListener('click', clickyButton('scissors'))
 
 
 // results.textContent = `${scoreGame(score)} Computer score is ${cscore} and player score is ${pscore}.`
