@@ -13,8 +13,9 @@
 //      ...or any other "X beats Y" game
 
 var choices = ['rock', 'paper', 'scissors']
-let selection
-
+let score = 0
+let cscore = 0
+let pscore = 0
 
 function getComputerChoice() {
     // TODO: same goal as in determineWinner: store the possible choices in a data structure
@@ -71,9 +72,6 @@ function scoreGame(score) {
 
 function playGame(playerSelection) {
     // TODO: optimize the if/else logic
-    let score = 0
-    let cscore = 0
-    let pscore = 0
     //let strike = 0
     //for (counter = 0; counter < 5;) 
     //while (true) {
@@ -101,8 +99,16 @@ function playGame(playerSelection) {
 
 
     //}
-    //alert(`The final score is: Computer, ${cscore}; Player, ${pscore}. ${scoreGame(score)}`)
+    console.log(computerSelection, playerSelection)
+    alert(`The final score is: Computer, ${cscore}; Player, ${pscore}. ${scoreGame(score)}`)
+
 }
+
+document.querySelector('#rock').addEventListener("click", () => { playGame('rock') })
+
+document.querySelector('#paper').addEventListener("click", () => { playGame('paper') })
+
+document.querySelector('#scissors').addEventListener("click", () => { playGame('scissors') })
 
 module.exports = {
     getComputerChoice,
@@ -117,18 +123,6 @@ module.exports = {
 //const results = document.createElement('div')
 //results.classList.add('results')
 
-function clickyButton(playerSelection) {
-    playGame(playerSelection)
-    alert(`${scoreGame(score)} Computer score is ${cscore} and player score is ${pscore}.`)
-    //outcome.appendChild(results);
-}
-
-const rock = document.querySelector('#rock')
-rock.addEventListener('click', clickyButton('rock'))
-const paper = document.querySelector('#paper')
-paper.addEventListener('click', clickyButton('paper'))
-const scissors = document.querySelector('#scissors')
-scissors.addEventListener('click', clickyButton('scissors'))
 
 
 // results.textContent = `${scoreGame(score)} Computer score is ${cscore} and player score is ${pscore}.`
