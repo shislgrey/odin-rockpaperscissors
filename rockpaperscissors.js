@@ -13,9 +13,15 @@
 //      ...or any other "X beats Y" game
 
 var choices = ['rock', 'paper', 'scissors']
+let counter = 0
 let score = 0
 let cscore = 0
 let pscore = 0
+const outcome = document.querySelector('#outcome')
+const results = document.createElement('div')
+results.classList.add('results')
+const scoreCard = document.createElement('div')
+scoreCard.classList.add('scorecard')
 
 function getComputerChoice() {
     // TODO: same goal as in determineWinner: store the possible choices in a data structure
@@ -73,7 +79,7 @@ function scoreGame(score) {
 function playGame(playerSelection) {
     // TODO: optimize the if/else logic
     //let strike = 0
-    //for (counter = 0; counter < 5;) 
+    // let counter = 0
     //while (true) {
     computerSelection = getComputerChoice()
 
@@ -88,7 +94,7 @@ function playGame(playerSelection) {
         score += 1;
         pscore += 1;
     }
-    //counter++
+    counter++
     // } else if (strike < 3) {
     //    playerSelection = prompt('Please enter a valid selection: rock, paper, or scissors?').toLowerCase()
     //    strike++
@@ -99,16 +105,22 @@ function playGame(playerSelection) {
 
 
     //}
-    console.log(computerSelection, playerSelection)
-    alert(`The final score is: Computer, ${cscore}; Player, ${pscore}. ${scoreGame(score)}`)
+    scoreCard.textContent += `\nRound ${counter}: ${computerSelection}, ${playerSelection}`
+    outcome.appendChild(scoreCard, `\n`)
+    if (counter == 5) {
+        results.textContent = (`The final score is: Computer, ${cscore}; Player, ${pscore}. ${scoreGame(score)}`)
+        outcome.appendChild(results)
+    }
 
 }
 
-document.querySelector('#rock').addEventListener("click", () => { playGame('rock') })
+document.querySelector('#rock').addEventListener("click", () => { playGame('rock'); })
 
-document.querySelector('#paper').addEventListener("click", () => { playGame('paper') })
+document.querySelector('#paper').addEventListener("click", () => { playGame('paper'); })
 
-document.querySelector('#scissors').addEventListener("click", () => { playGame('scissors') })
+document.querySelector('#scissors').addEventListener("click", () => { playGame('scissors'); })
+
+document.querySelector('#reset').addEventListener('click', () => { score = 0; cscore = 0; pscore = 0; counter = 0; scoreCard.textContent = ``; results.textContent = `` })
 
 module.exports = {
     getComputerChoice,
@@ -119,10 +131,8 @@ module.exports = {
 };
 
 
-//const outcome = document.querySelector('#outcome')
-//const results = document.createElement('div')
-//results.classList.add('results')
+
+// outcome.appendChild(results)
 
 
 
-// results.textContent = `${scoreGame(score)} Computer score is ${cscore} and player score is ${pscore}.`
