@@ -23,6 +23,15 @@ results.classList.add('results')
 const scoreCard = document.createElement('div')
 scoreCard.classList.add('scorecard')
 
+function resetGame() {
+    score = 0;
+    cscore = 0;
+    pscore = 0;
+    counter = 0;
+    scoreCard.textContent = ``;
+    results.textContent = ``
+}
+
 function getComputerChoice() {
     // TODO: same goal as in determineWinner: store the possible choices in a data structure
     return choices[Math.floor(Math.random() * choices.length)]
@@ -110,6 +119,8 @@ function playGame(playerSelection) {
     if (counter == 5) {
         results.textContent = (`The final score is: Computer, ${cscore}; Player, ${pscore}. ${scoreGame(score)}`)
         outcome.appendChild(results)
+    } else if (counter > 5) {
+        resetGame()
     }
 
 }
@@ -120,7 +131,7 @@ document.querySelector('#paper').addEventListener("click", () => { playGame('pap
 
 document.querySelector('#scissors').addEventListener("click", () => { playGame('scissors'); })
 
-document.querySelector('#reset').addEventListener('click', () => { score = 0; cscore = 0; pscore = 0; counter = 0; scoreCard.textContent = ``; results.textContent = `` })
+document.querySelector('#reset').addEventListener('click', () => { resetGame() })
 
 module.exports = {
     getComputerChoice,
